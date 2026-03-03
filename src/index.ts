@@ -2,6 +2,7 @@ import { Hono } from 'hono'
 import { z } from 'zod'
 import { zValidator } from '@hono/zod-validator'
 import artworks from './data/artworks.json'
+import { viewerRandomHtml } from './views/viewer'
 
 type Artwork = {
   id: string
@@ -52,5 +53,9 @@ app.get(
     return c.json(results)
   }
 )
+
+app.get('/viewer', (c) => {
+  return c.html(viewerRandomHtml)
+})
 
 export default app
