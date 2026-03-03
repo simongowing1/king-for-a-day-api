@@ -1,0 +1,7 @@
+name = "king-for-a-day"
+main = "src/index.ts"
+compatibility_date = "2026-03-03"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+ENVIRONMENT = "production"
