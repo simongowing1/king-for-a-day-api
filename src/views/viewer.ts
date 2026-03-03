@@ -12,8 +12,8 @@ export const viewerRandomHtml = /* html */ `<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0a0a0a;
-      color: #f0ece4;
+      background: #F1EBE5;
+      color: #0a0a0a;
       font-family: Georgia, 'Times New Roman', serif;
       padding: 2rem;
     }
@@ -25,11 +25,11 @@ export const viewerRandomHtml = /* html */ `<!DOCTYPE html>
       font-size: clamp(1.25rem, 4vw, 2rem);
       line-height: 1.4;
       letter-spacing: 0.01em;
+      
     }
     .id {
-      opacity: 0.35;
       font-size: 0.85em;
-      margin-right: 0.5ch;
+      margin-right: 4ch;
     }
     .loading {
       opacity: 0.35;
@@ -38,7 +38,7 @@ export const viewerRandomHtml = /* html */ `<!DOCTYPE html>
       text-transform: uppercase;
     }
     .error {
-      color: #c0392b;
+      opacity: 0.35;
       font-size: 0.9rem;
     }
   </style>
@@ -48,7 +48,8 @@ export const viewerRandomHtml = /* html */ `<!DOCTYPE html>
     <p v-if="loading" class="loading">—</p>
     <p v-else-if="error" class="error">{{ error }}</p>
     <p v-else class="artwork">
-      <span class="id">{{ artwork.id }}</span>{{ artwork.title }}
+      <span class="id">{{ artwork.id }}</span>
+      <span >{{ artwork.title }}</span>
     </p>
   </div>
   <script>
