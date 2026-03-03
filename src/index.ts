@@ -16,7 +16,7 @@ const app = new Hono()
 app.get('/', (c) => {
   return c.json({
     name: 'King for a Day',
-    description: 'An API of 1000 artwork titles by Bruce McLean',
+    description: 'An API of 1000 artwork titles from Bruce McLean\'s 1969 artwork, \'King for a Day\'.',
     endpoints: {
       random: '/artwork/random',
       byId: '/artwork/:id',
