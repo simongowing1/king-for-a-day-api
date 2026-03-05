@@ -2,7 +2,7 @@ import { Hono } from 'hono'
 import { z } from 'zod'
 import { zValidator } from '@hono/zod-validator'
 import artworks from './data/artworks.json'
-import { viewerRandomHtml } from './views/viewer'
+import { viewerHtml } from './views/viewer'
 
 type Artwork = {
   id: string
@@ -55,7 +55,14 @@ app.get(
 )
 
 app.get('/viewer', (c) => {
-  return c.html(viewerRandomHtml)
+  return c.html(viewerHtml('/artwork/random'))
+})
+
+app.get('/viewer/:id', zValidator('param', idSchema), (c) => {
+  const { id } = c.req.valid('param')
+  const artwork = db.find((a) => a.id === id)
+  if (!artwork) return c.json({ error: 'Artwork not found' }, 404)
+  return c.html(viewerHtml(`/artwork/${id}`))
 })
 
 export default app
