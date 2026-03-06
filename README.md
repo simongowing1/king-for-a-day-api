@@ -42,6 +42,7 @@ A browser-based viewer that displays a random artwork title on each page load.
 ```bash
 npm run dev         # start local dev server via Wrangler
 npm run deploy      # deploy to Cloudflare Workers
+npm test            # run Jest test suite
 npm run type-check  # run TypeScript type checking
 ```
 
@@ -62,5 +63,10 @@ src/
     viewer.ts       # HTML for the /viewer page
   data/
     artworks.json   # source dataset (do not modify)
+  __tests__/
+    api.test.ts     # Jest route tests
+jest.config.ts      # Jest configuration
+tsconfig.json       # TypeScript config (Workers)
+tsconfig.test.json  # TypeScript config (Jest)
 wrangler.toml       # Cloudflare Workers config
 ```
